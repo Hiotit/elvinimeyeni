@@ -7,20 +7,18 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #fff0f5, #ffe6f0);
+      background: url('https://i.hizliresim.com/hj14gzk.jpeg') no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Comic Sans MS', cursive;
       overflow: hidden;
       text-align: center;
-      background-image: url('https://i.imgur.com/dZ1GJgT.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 300px;
     }
 
     h1 {
       margin-top: 100px;
       font-size: 48px;
-      color: #cc0066;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px #ff66cc;
       animation: bounce 2s ease-in-out infinite;
     }
 
@@ -44,13 +42,14 @@
 
     #mesaj {
       font-size: 32px;
-      color: #99004d;
+      color: #ffffff;
       margin-top: 40px;
       opacity: 0;
       transition: opacity 1s ease-in;
       max-width: 90%;
       margin-left: auto;
       margin-right: auto;
+      text-shadow: 1px 1px 5px #000;
     }
 
     #mesaj.gorunur {
@@ -58,7 +57,7 @@
     }
 
     .heart {
-      position: absolute;
+      position: fixed;
       width: 20px;
       height: 20px;
       background: pink;
@@ -94,7 +93,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateY(-300px) rotate(45deg);
+        transform: translateY(-800px) rotate(45deg);
         opacity: 0;
       }
     }
@@ -132,22 +131,24 @@
       void mesaj.offsetWidth;
       mesaj.classList.add("gorunur");
 
-      for (let i = 0; i < 30; i++) {
+      // Tıklamada kalpler tüm ekranı kaplasın
+      for (let i = 0; i < 100; i++) {
         const heart = document.createElement("div");
         heart.className = "heart";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = "80vh";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = Math.random() * window.innerHeight + "px";
         heart.style.animationDuration = (2 + Math.random()).toFixed(2) + "s";
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 3000);
       }
     }
 
+    // Girişte hafif kalp uçuşları
     window.onload = () => {
       setInterval(() => {
         const heart = document.createElement("div");
         heart.className = "heart";
-        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.left = Math.random() * window.innerWidth + "px";
         heart.style.top = "100vh";
         heart.style.animationDuration = (3 + Math.random()).toFixed(2) + "s";
         document.body.appendChild(heart);
